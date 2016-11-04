@@ -19,9 +19,11 @@
 #include <sys/ptrace.h>
 #include <sys/user.h>
 
+#include "log.h"
+
 void run_debugger(pid_t child_pid)
 {
-    printf("The Debugger has started.\n");
+    logger(INFO, LOG_FILE, __FILE__, "The Debugger has started.\n");
 
     int wait_status;
     wait(&wait_status);

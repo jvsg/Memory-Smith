@@ -13,25 +13,26 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 */
+#ifndef MEMORY_TINKERER_LOG_H
+#define MEMORY_TINKERER_LOG_H
+
 #include <stdio.h>
-#include <sys/ptrace.h>
-#include <unistd.h>
 
-#include "log.h"
-
-void run_target (const char* executable_name)
+enum category
 {
-    logger(INFO, LOG_FILE, __FILE__, "Attempting to run the executable.\n");
+    EMERGENCY = 0,
+    WARNING,
+    DEBUG,
+    INFO
+};
 
-    if (ptrace(PTRACE_TRACEME, 0, 0, 0) < 0)
-    {
-        logger(EMERGENCY, LOG_FILE, __FILE__, "Oops, Problem with Ptracing the Program you requested\n");
-        return;
-    }
-    else
-    {
-        if (execl(executable_name, executable_name, 0, NULL))
-            logger (EMERGENCY, LOG_FILE, __FILE__, "Oops, Something went wrong with Executing the program.\n");
-    }
-}
 
+enum destination
+{
+    LOG_FILE = 0,
+    CONSOLE
+};
+
+void logger(enum category, enum destination, const char* /* Source File name*/, const char* /*Log Message*/);
+
+#endif //MEMORY_TINKERER_LOG_H

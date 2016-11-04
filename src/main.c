@@ -19,6 +19,7 @@
 
 #include "target.h"
 #include "debugger.h"
+#include "log.h"
 
 int main(int argc, char** argv)
 {
@@ -26,12 +27,12 @@ int main(int argc, char** argv)
 
     if (argc > 2)
     {
-        printf ("ERROR : You supplied too many arguments. Take it easy.\n");
+        logger (EMERGENCY, LOG_FILE, __FILE__, "You supplied too many arguments. Take it easy.\n");
         return 1;
     }
     else if (argc < 2)
     {
-        printf ("ERROR : Executable Name Expected as an argument. Did you forgot to supply it?\n");
+        logger (EMERGENCY, LOG_FILE, __FILE__, "Executable Name Expected as an argument. Did you forgot to supply it?\n");
         return 1;
     }
 
@@ -43,7 +44,7 @@ int main(int argc, char** argv)
         run_debugger(child_pid);
     else
     {
-        printf ("ERROR : Problem while forking.");
+        logger (EMERGENCY, LOG_FILE, __FILE__, "Problem while forking.");
         return 0;
     }
 
