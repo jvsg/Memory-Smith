@@ -19,7 +19,7 @@
 #include <errno.h>
 
 
-#include "log.h"
+#include "log.hxx"
 
 void logger (enum category eCategory, enum destination eDestination, const char* pSourceFile, const char* pMessage)
 {

@@ -17,7 +17,7 @@
 #include <sys/ptrace.h>
 #include <unistd.h>
 
-#include "log.h"
+#include "log.hxx"
 
 void run_target (const char* executable_name)
 {

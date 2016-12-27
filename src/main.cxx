@@ -17,9 +17,9 @@
 #include <sys/types.h>
 #include <sys/unistd.h>
 
-#include "target.h"
-#include "debugger.h"
-#include "log.h"
+#include "target.hxx"
+#include "debugger.hxx"
+#include "log.hxx"
 
 int main(int argc, char** argv)
 {

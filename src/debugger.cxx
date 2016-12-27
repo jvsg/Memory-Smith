@@ -19,7 +19,7 @@
 #include <sys/ptrace.h>
 #include <sys/user.h>
 
-#include "log.h"
+#include "log.hxx"
 
 void run_debugger(pid_t child_pid)
 {
