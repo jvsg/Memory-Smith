@@ -23,7 +23,7 @@
 
 void logger (enum category eCategory, enum destination eDestination, const char* pSourceFile, const char* pMessage)
 {
-    char* pFullMessage = malloc(200);
+    char* pFullMessage = (char *) malloc(200);
 
     switch (eCategory)
     {
